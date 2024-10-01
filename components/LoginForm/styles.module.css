@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+  margin: auto;
+  margin-top: 3rem;
+}
+
+.main input,
+.main button {
+  padding: 0.6rem;
+}
+
+.error {
+  color: rgb(188, 15, 15);
+}

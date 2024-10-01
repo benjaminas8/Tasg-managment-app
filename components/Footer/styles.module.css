@@ -1,0 +1,5 @@
+.main {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary-color);
+  padding: 1rem;
+}

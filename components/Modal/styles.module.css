@@ -1,0 +1,24 @@
+.main {
+  background-color: var(--card-color);
+  color: var(--text-color);
+  padding: 2rem;
+  width: 400px;
+  height: 550px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 1rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.main button {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--secondary-color);
+  background-color: red;
+  cursor: pointer;
+}
