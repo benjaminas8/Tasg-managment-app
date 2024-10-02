@@ -12,6 +12,7 @@ const TasksWrapper = ({ tasks }: TasksWrapperProps) => {
       {tasks.map((task) => {
         return (
           <Task
+            id={task.id}
             key={task.id}
             taskTitle={task.taskTitle}
             taskText={task.taskText}

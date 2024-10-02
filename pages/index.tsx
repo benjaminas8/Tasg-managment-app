@@ -16,24 +16,24 @@ export default function Home() {
 
   const jwt = cookie.get("task_manager_app_jwt");
 
-  const validateUser = async () => {
-    try {
-      const headers = {
-        authorization: jwt,
-      };
+  // const validateUser = async () => {
+  //   try {
+  //     const headers = {
+  //       authorization: jwt,
+  //     };
 
-      const response = await axios.get("http://localhost:3003/login/validate", {
-        headers,
-      });
+  //     const response = await axios.get("http://localhost:3003/login/validate", {
+  //       headers,
+  //     });
 
-      if (response.status !== 200) {
-        router.push("/login");
-      }
-    } catch (err) {
-      console.log(err);
-      router.push("/login");
-    }
-  };
+  //     if (response.status !== 200) {
+  //       router.push("/login");
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //     router.push("/login");
+  //   }
+  // };
 
   const fetchTasks = async () => {
     try {
@@ -52,7 +52,7 @@ export default function Home() {
       router.push("/login");
     }
 
-    validateUser();
+    // validateUser(); Naudoti komentaram
 
     fetchTasks();
   }, []);
