@@ -2,7 +2,7 @@
   background-color: var(--primary-color);
   color: var(--text-on-primary-color);
 
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   height: 60px;
   display: flex;
   align-items: center;
@@ -20,8 +20,14 @@
   gap: 1rem;
 }
 
-.main ul li a {
+.link {
   color: var(--text-on-primary-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.link:hover {
+  font-size: 1.2rem;
 }
 
 .nav {

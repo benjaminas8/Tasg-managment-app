@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import Header from "../components/Header/Header";
-import Footer from "@/components/Footer/Footer";
+
 import Modal from "@/components/Modal/Modal";
 import axios from "axios";
-import cookie from "js-cookie";
+
 import TasksWrapper from "@/components/TasksWrapper/TasksWrapper";
 import { Task as TaskType } from "@/types/tasks";
 import { useRouter } from "next/router";
+import PageTemplate from "@/components/PageTemplate/PageTemplate";
+import cookie from "js-cookie";
 
 export default function Home() {
   const router = useRouter();
@@ -15,26 +16,6 @@ export default function Home() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
 
   const jwt = cookie.get("task_manager_app_jwt");
-
-  // const validateUser = async () => {
-  //   try {
-  //     const headers = {
-  //       authorization: jwt,
-  //     };
-
-  //     const response = await axios.get("http://localhost:3003/login/validate", {
-  //       headers,
-  //     });
-
-  //     if (response.status !== 200) {
-  //       router.push("/login");
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //     router.push("/login");
-  //   }
-  // };
-
   const fetchTasks = async () => {
     try {
       const response = await axios.get("http://localhost:3003/tasks");
@@ -52,24 +33,22 @@ export default function Home() {
       router.push("/login");
     }
 
-    // validateUser(); Naudoti komentaram
-
     fetchTasks();
   }, []);
 
   return (
     <>
-      <Header />
-      <TasksWrapper tasks={tasks} />
-      <Footer copyrightTitle="copyright" />
-      {isModalOpen && (
-        <Modal
-          text="Error"
-          onModalClose={() => {
-            setModalOpen(false);
-          }}
-        />
-      )}
+      <PageTemplate>
+        <TasksWrapper tasks={tasks} />
+        {isModalOpen && (
+          <Modal
+            text="Error"
+            onModalClose={() => {
+              setModalOpen(false);
+            }}
+          />
+        )}
+      </PageTemplate>
     </>
   );
 }

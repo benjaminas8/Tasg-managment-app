@@ -5,6 +5,7 @@ import TaskDisplay from "../../components/TaskDisplay/TaskDisplay";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Task } from "../../types/tasks";
+import PageTemplate from "../../components/PageTemplate/PageTemplate";
 
 const TaskPage = () => {
   const [task, setTask] = useState<Task | null>(null);
@@ -24,12 +25,9 @@ const TaskPage = () => {
   }, [router.query.id]);
 
   return (
-    <>
-      <Header />
+    <PageTemplate>
       {task && <TaskDisplay title={task.taskTitle} text={task.taskText} />}
-
-      <Footer copyrightTitle="© 2024 3D mess" />
-    </>
+    </PageTemplate>
   );
 };
 
