@@ -1,0 +1,9 @@
+.main {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary-color);
+  padding: 1rem 0;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

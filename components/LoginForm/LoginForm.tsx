@@ -3,6 +3,7 @@ import axios from "axios";
 import cookie from "js-cookie";
 import styles from "./styles.module.css";
 import { useRouter } from "next/router";
+import Button from "../Button/Button";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -10,9 +11,12 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isShowErr, setShowErr] = useState(false);
+  const [isButtonLoading, setButtonLoading] = useState(false);
 
   const loginUser = async () => {
     try {
+      setButtonLoading(true);
+
       const body = {
         email: email,
         password: password,
@@ -26,9 +30,12 @@ const LoginForm = () => {
       }
 
       console.log(response);
+
+      setButtonLoading(false);
     } catch (err) {
       console.log("error: ", err);
       setShowErr(true);
+      setButtonLoading(false);
     }
   };
 
@@ -50,13 +57,7 @@ const LoginForm = () => {
         placeholder="password"
         type="password"
       />
-      <button
-        onClick={() => {
-          loginUser();
-        }}
-      >
-        Login
-      </button>
+      <Button onClick={loginUser} title="Login" isLoading={isButtonLoading} />
 
       {isShowErr && <h5 className={styles.error}>Wrong email or password</h5>}
     </div>
