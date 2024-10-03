@@ -23,7 +23,10 @@ const LoginForm = () => {
         password: password,
       };
 
-      const response = await axios.post("http://localhost:3003/login", body);
+      const response = await axios.post(
+        `${process.env.SERVER_URL}/login`,
+        body
+      );
 
       if (response.status === 200) {
         cookie.set("task_manager_app_jwt", response.data.token);
