@@ -40,6 +40,29 @@
   justify-content: space-around;
 }
 
+.taskWrapper button {
+  padding: 1rem;
+  border: 2px solid var(--secondary-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.deleteButton {
+  background-color: rgb(220, 18, 18);
+  color: var(--text-on-primary-color);
+}
+
+.deleteButton:hover {
+  background-color: rgb(224, 76, 76);
+  color: var(--text-color);
+}
+
+.completeButton:hover {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary-color);
+}
+
 .commentWrapper {
   background-color: var(--card-color);
   width: 80%;

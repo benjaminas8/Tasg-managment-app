@@ -6,4 +6,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.main:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }

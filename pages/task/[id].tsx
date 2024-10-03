@@ -1,5 +1,3 @@
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import React, { useEffect, useState } from "react";
 import TaskDisplay from "../../components/TaskDisplay/TaskDisplay";
 import axios from "axios";
@@ -26,7 +24,9 @@ const TaskPage = () => {
 
   return (
     <PageTemplate>
-      {task && <TaskDisplay title={task.taskTitle} text={task.taskText} />}
+      {task && (
+        <TaskDisplay id={task.id} title={task.taskTitle} text={task.taskText} />
+      )}
     </PageTemplate>
   );
 };

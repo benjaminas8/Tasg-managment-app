@@ -4,7 +4,10 @@ import styles from "./styles.module.css";
 const Header = () => {
   return (
     <div className={styles.main}>
-      <div className={styles.logo}>Task Managment App</div>
+      <Link href="/" className={styles.logo}>
+        Task Managment App
+      </Link>
+
       <div className={styles.nav}>
         <ul>
           <li>
