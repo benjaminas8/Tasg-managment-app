@@ -24,9 +24,13 @@ const CreateTaskForm = () => {
         authorization: jwt,
       };
 
-      const response = await axios.post("http://localhost:3003/tasks", body, {
-        headers,
-      });
+      const response = await axios.post(
+        `${process.env.SERVER_URL}/tasks`,
+        body,
+        {
+          headers,
+        }
+      );
 
       if (response.status === 201) {
         router.push("/");

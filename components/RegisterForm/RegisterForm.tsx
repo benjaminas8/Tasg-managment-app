@@ -28,7 +28,7 @@ const RegisterForm = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:3003/register",
+        `${process.env.SERVER_URL}/register`,
         body,
         {
           headers,

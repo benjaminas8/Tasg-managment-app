@@ -15,7 +15,7 @@ const TaskPage = () => {
       if (router.query.id) {
         try {
           const fetchedInventory = await axios.get(
-            `http://localhost:3003/tasks/${router.query.id}`
+            `${process.env.SERVER_URL}/tasks/${router.query.id}`
           );
           console.log(fetchedInventory.data.task);
           setTask(fetchedInventory.data.task);

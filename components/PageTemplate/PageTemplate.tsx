@@ -20,9 +20,12 @@ const PageTemplate = ({ children }: PageTemplateProps) => {
         authorization: jwt,
       };
 
-      const response = await axios.get("http://localhost:3003/login/validate", {
-        headers,
-      });
+      const response = await axios.get(
+        `${process.env.SERVER_URL}/login/validate`,
+        {
+          headers,
+        }
+      );
 
       if (response.status !== 200) {
         router.push("/login");

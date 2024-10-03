@@ -23,9 +23,12 @@ const TaskDisplay = ({ id, title, text, isCompleted }: TaskDisplayProps) => {
         authorization: jwt,
       };
 
-      const response = await axios.delete(`http://localhost:3003/tasks/${id}`, {
-        headers,
-      });
+      const response = await axios.delete(
+        `${process.env.SERVER_URL}/tasks/${id}`,
+        {
+          headers,
+        }
+      );
 
       if (response.status === 200) {
         router.push("/");
@@ -43,7 +46,7 @@ const TaskDisplay = ({ id, title, text, isCompleted }: TaskDisplayProps) => {
       };
 
       const response = await axios.patch(
-        `http://localhost:3003/tasks/${id}`,
+        `${process.env.SERVER_URL}/tasks/${id}`,
         { isCompleted: !isTaskCompleted },
         { headers }
       );

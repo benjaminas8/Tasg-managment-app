@@ -18,7 +18,7 @@ export default function Home() {
   const jwt = cookie.get("task_manager_app_jwt");
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:3003/tasks");
+      const response = await axios.get(`${process.env.SERVER_URL}/tasks`);
 
       setTasks(response.data.tasks);
       console.log(response.data.tasks);
