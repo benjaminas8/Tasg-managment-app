@@ -4,6 +4,7 @@ import cookie from "js-cookie";
 import styles from "./styles.module.css";
 import { useRouter } from "next/router";
 import Button from "../Button/Button";
+import Link from "next/link";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -60,6 +61,10 @@ const LoginForm = () => {
       <Button onClick={loginUser} title="Login" isLoading={isButtonLoading} />
 
       {isShowErr && <h5 className={styles.error}>Wrong email or password</h5>}
+
+      <Link href="/register" className={styles.signInText}>
+        Don&apos;t have an account? Sign in
+      </Link>
     </div>
   );
 };

@@ -16,6 +16,7 @@ const TasksWrapper = ({ tasks }: TasksWrapperProps) => {
             key={task.id}
             taskTitle={task.taskTitle}
             taskText={task.taskText}
+            isCompleted={task.isCompleted}
           />
         );
       })}
