@@ -37,18 +37,16 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <PageTemplate>
-        <TasksWrapper tasks={tasks} />
-        {isModalOpen && (
-          <Modal
-            text="Error"
-            onModalClose={() => {
-              setModalOpen(false);
-            }}
-          />
-        )}
-      </PageTemplate>
-    </>
+    <PageTemplate>
+      <TasksWrapper tasks={tasks} />
+      {isModalOpen && (
+        <Modal
+          text="Error"
+          onModalClose={() => {
+            setModalOpen(false);
+          }}
+        />
+      )}
+    </PageTemplate>
   );
 }

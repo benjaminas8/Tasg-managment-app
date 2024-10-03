@@ -10,22 +10,33 @@ const TaskPage = () => {
 
   const router = useRouter();
 
-  const fetchTask = async () => {
-    const fetchedInventory = await axios.get(
-      `http://localhost:3003/tasks/${router.query.id}`
-    );
-    console.log(fetchedInventory.data.task);
-    setTask(fetchedInventory.data.task);
-  };
-
   useEffect(() => {
-    router.query.id && fetchTask();
+    const fetchTask = async () => {
+      if (router.query.id) {
+        try {
+          const fetchedInventory = await axios.get(
+            `http://localhost:3003/tasks/${router.query.id}`
+          );
+          console.log(fetchedInventory.data.task);
+          setTask(fetchedInventory.data.task);
+        } catch (err) {
+          console.error("Error fetching task:", err);
+        }
+      }
+    };
+
+    fetchTask();
   }, [router.query.id]);
 
   return (
     <PageTemplate>
       {task && (
-        <TaskDisplay id={task.id} title={task.taskTitle} text={task.taskText} />
+        <TaskDisplay
+          id={task.id}
+          title={task.taskTitle}
+          text={task.taskText}
+          isCompleted={false}
+        />
       )}
     </PageTemplate>
   );

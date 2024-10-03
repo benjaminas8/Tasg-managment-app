@@ -19,7 +19,7 @@ const Task = ({ id, taskTitle, taskText, isCompleted }: TaskProps) => {
           className={
             isCompleted
               ? styles.TaskIsNotCompletedindicator
-              : styles.TaskIsNotCompletedindicator
+              : styles.TaskIsCompletedindicator
           }
         ></div>
       </div>
